@@ -83,10 +83,10 @@ class MarkdownFormatter:
         block = [
             f"> [!quote] Quote Title: Quote {quote_id}",
             f"> {indented_text}",
-            "",
-            f"[source:: [[{self.source_note_name}]]] [page:: {pos}] [topic:: {tag_str}] [relevance:: relevant]",
-            "",
-            f"^{quote_id}"
+            ">",
+            f">[source:: [[{self.source_note_name}]]] [page:: {pos}] [topic:: {tag_str}] [relevance:: relevant]",
+            ">",
+            f">^{quote_id}"
         ]
         return "\n".join(block)
 
