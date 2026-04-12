@@ -1,0 +1,15 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Generated Highlight Data
+*.json
+# We ignore generated highlight markdown files but keep README.md
+*.md
+!README.md
+
+# OS specific
+.DS_Store
+.idea/
+.vscode/
