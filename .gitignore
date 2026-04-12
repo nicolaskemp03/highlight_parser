@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Input Data
+*.mrexpt
+*.html
 # Generated Highlight Data
 *.json
 # We ignore generated highlight markdown files but keep README.md
