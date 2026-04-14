@@ -66,14 +66,15 @@ class MoonReaderParser:
 
                 self.highlights.append({
                     "id": entry_id,
+                    "text": highlight_text,
                     "title": title,
                     "date": date_str,
                     "timestamp": ts_ms,
-                    "text": highlight_text,
+                    "page": pos,
+                    "note": "", # MoonReader doesn't have a separate note field per highlight usually
                     "metadata": {
                         "path": path,
                         "chapter_index": chapter_index,
-                        "position": pos,
                         "length": length,
                         "color": color
                     }

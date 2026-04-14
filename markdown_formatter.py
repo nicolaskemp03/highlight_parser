@@ -68,7 +68,9 @@ class MarkdownFormatter:
         # Indent multi-line quotes for the Obsidian callout
         indented_text = text.replace("\n", "\n> ")
         
-        pos = item.get("metadata", {}).get("position", "0")
+        page = item.get("page", "0")
+        note = item.get("note", "").strip()
+        relevance = note if note else "relevant"
         
         tag_str = " ".join([f"#{t}" if not t.startswith("#") else t for t in self.tags])
         
@@ -84,9 +86,9 @@ class MarkdownFormatter:
             f"> [!quote] Quote Title: Quote {quote_id}",
             f"> {indented_text}",
             ">",
-            f">[source:: [[{self.source_note_name}]]] [page:: {pos}] [topic:: {tag_str}] [relevance:: relevant]",
+            f"> [source:: [[{self.source_note_name}]]] [page:: {page}] [topic:: {tag_str}] [relevance:: {relevance}]",
             ">",
-            f">^{quote_id}"
+            f"> ^{quote_id}"
         ]
         return "\n".join(block)
 

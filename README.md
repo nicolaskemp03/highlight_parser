@@ -1,25 +1,31 @@
-# MoonReader+ Highlight Parser & Formatter
+# MoonReader+ & Zotero Highlight Parser & Formatter
 
-A suite of Python scripts to parse and format book highlights exported from MoonReader+ on Android (`.mrexpt` files).
+A suite of Python scripts to parse and format book highlights exported from different applications into a unified format.
 
 ## Features
 
-1. **`moon_reader_parser.py`**: A robust parser that converts the complex `.mrexpt` format into a clean, structured JSON file.
-2. **`markdown_formatter.py`**: A formatter that transforms the JSON data into Obsidian-compatible Markdown files with custom callouts and Zettelkasten-style metadata.
+1. **Unified Schema**: All parsers output a consistent JSON format (`id`, `text`, `title`, `date`, `page`, `note`, `metadata`).
+2. **`moon_reader_parser.py`**: Parses MoonReader+ `.mrexpt` files.
+3. **`zotero_parser.py`**: Parses Zotero Markdown annotation exports. It automatically maps user notes to the "relevance" field.
+4. **`markdown_formatter.py`**: Transforms the unified JSON into Obsidian-compatible Markdown files with custom callouts.
 
 ## Quick Start
 
 ### 1. Parse your export to JSON
+For MoonReader:
 ```bash
-python3 moon_reader_parser.py "MyBookHighlights.mrexpt"
+python3 moon_reader_parser.py "MyBook.mrexpt"
 ```
-This generates `MyBookHighlights.json`.
+For Zotero:
+```bash
+python3 zotero_parser.py "Annotations.md"
+```
 
 ### 2. Format JSON to Markdown (Interactive)
 ```bash
-python3 markdown_formatter.py "MyBookHighlights.json"
+python3 markdown_formatter.py "Annotations.json"
 ```
-Follow the terminal prompts to provide the **Author**, **Year**, and **Short Title**. This creates a file named `Author_Year_ShortTitle.md`.
+Follow the terminal prompts for **Author**, **Year**, and **Short Title**. User notes from the source will appear in the `[relevance:: ...]` field.
 
 ## Metadata Formatting
 
