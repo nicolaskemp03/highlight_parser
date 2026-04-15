@@ -84,9 +84,8 @@ class MarkdownFormatter:
         
         block = [
             f"> [!quote] Quote Title: Quote {quote_id}",
-            f"> {indented_text}",
-            ">",
-            f"> [source:: [[{self.source_note_name}]]] [page:: {page}] [topic:: {tag_str}] [relevance:: {relevance}]",
+            f"> - {indented_text}",
+            f">   [source:: [[{self.source_note_name}]]] [page:: {page}] [topic:: {tag_str}] [relevance:: {relevance}]",
             ">",
             f"> ^{quote_id}"
         ]
